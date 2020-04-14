@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-04-2020 a las 02:50:05
+-- Tiempo de generación: 13-04-2020 a las 00:36:49
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.27
 
@@ -19,22 +19,22 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `prueba1`
+-- Base de datos: `dbsistemas`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `producto`
+-- Estructura de tabla para la tabla `detalle_compra`
 --
 
-CREATE TABLE `producto` (
+CREATE TABLE `detalle_compra` (
+  `Id_Detalle_Compra` int(11) NOT NULL,
+  `Id_Compra` int(11) NOT NULL,
   `Id_Producto` int(11) NOT NULL,
-  `Nombre` varchar(50) NOT NULL,
-  `Precio` decimal(2,0) NOT NULL,
-  `Marca` varchar(50) NOT NULL,
-  `Tipo_Producto` varchar(25) NOT NULL,
-  `Stock` int(11) NOT NULL
+  `Cantidad` int(11) NOT NULL,
+  `Precio_Compra` decimal(11,0) NOT NULL,
+  `Precio_Venta` decimal(11,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -42,10 +42,22 @@ CREATE TABLE `producto` (
 --
 
 --
--- Indices de la tabla `producto`
+-- Indices de la tabla `detalle_compra`
 --
-ALTER TABLE `producto`
-  ADD PRIMARY KEY (`Id_Producto`);
+ALTER TABLE `detalle_compra`
+  ADD PRIMARY KEY (`Id_Detalle_Compra`),
+  ADD KEY `Fk_Detalle_Compra_Producto_Idx` (`Id_Producto`),
+  ADD KEY `Fk_Detalle_Compra_Compra_Idx` (`Id_Compra`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `detalle_compra`
+--
+ALTER TABLE `detalle_compra`
+  MODIFY `Id_Detalle_Compra` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

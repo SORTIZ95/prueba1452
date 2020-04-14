@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-04-2020 a las 05:46:19
+-- Tiempo de generación: 13-04-2020 a las 00:40:58
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.27
 
@@ -19,41 +19,43 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `dbzapateria`
+-- Base de datos: `dbsistemas`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ventas`
+-- Estructura de tabla para la tabla `telefono_persona`
 --
 
-CREATE TABLE `ventas` (
-  `Id_venta` int(11) NOT NULL,
-  `Id_producto` int(11) NOT NULL,
-  `Id_cliente` int(11) NOT NULL,
-  `Id_empleado` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `telefono_persona` (
+  `Id_Telefono_Persona` int(11) NOT NULL,
+  `Id_Persona` int(11) NOT NULL,
+  `Celular` int(11) NOT NULL,
+  `Trabajo` int(11) NOT NULL,
+  `Casa` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `ventas`
+-- Indices de la tabla `telefono_persona`
 --
-ALTER TABLE `ventas`
-  ADD PRIMARY KEY (`Id_venta`);
+ALTER TABLE `telefono_persona`
+  ADD PRIMARY KEY (`Id_Telefono_Persona`),
+  ADD KEY `Fk_Persona_Telefono_Persona_Idx` (`Id_Persona`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `ventas`
+-- AUTO_INCREMENT de la tabla `telefono_persona`
 --
-ALTER TABLE `ventas`
-  MODIFY `Id_venta` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `telefono_persona`
+  MODIFY `Id_Telefono_Persona` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

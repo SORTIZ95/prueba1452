@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-04-2020 a las 03:49:16
+-- Tiempo de generación: 13-04-2020 a las 00:39:12
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.27
 
@@ -19,42 +19,44 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `prueba1452`
+-- Base de datos: `dbsistemas`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `proveedor`
+-- Estructura de tabla para la tabla `nombre_persona`
 --
 
-CREATE TABLE `proveedor` (
-  `idproveedor` int(20) NOT NULL,
-  `nombreproveedor` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `direccion` varchar(50) CHARACTER SET utf8mb4 NOT NULL,
-  `telefono` int(40) NOT NULL,
-  `nit` varchar(40) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+CREATE TABLE `nombre_persona` (
+  `Id_Nombre_Persona` int(11) NOT NULL,
+  `Id_Persona` int(11) NOT NULL,
+  `Primer_Nombre` varchar(25) CHARACTER SET latin1 NOT NULL,
+  `Segundo_Nombre` varchar(25) CHARACTER SET latin1 NOT NULL,
+  `Primer_Apellido` varchar(25) CHARACTER SET latin1 NOT NULL,
+  `Segundo_Apellido` varchar(25) CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `proveedor`
+-- Indices de la tabla `nombre_persona`
 --
-ALTER TABLE `proveedor`
-  ADD PRIMARY KEY (`idproveedor`);
+ALTER TABLE `nombre_persona`
+  ADD PRIMARY KEY (`Id_Nombre_Persona`),
+  ADD KEY `Fk_Persona_Telefono_Persona_Idx` (`Id_Persona`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `proveedor`
+-- AUTO_INCREMENT de la tabla `nombre_persona`
 --
-ALTER TABLE `proveedor`
-  MODIFY `idproveedor` int(20) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `nombre_persona`
+  MODIFY `Id_Nombre_Persona` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
